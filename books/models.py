@@ -11,7 +11,6 @@ class Book(models.Model):
         (4, 'Biography'),
         (5, 'Romance'),
         (6, 'Self Help'),
-        (7, 'Text Book'),
     ]
     LANGUAGE_CHOICES = [
         (1, 'English'),
@@ -19,7 +18,6 @@ class Book(models.Model):
         (3, 'French'),
         (4, 'German'),
         (5, 'Chinese'),
-        (6, 'Japanese'),
     ]
     name = models.CharField(max_length=100)
     author = models.CharField(max_length=50)

@@ -18,7 +18,7 @@ def process_register_user_form(request):
             email=request.POST['email'],
             password=request.POST['password']
         )
-        new_user.save() 
+        new_user.save()
         return HttpResponseRedirect(reverse('users:login')) # 5. Redirect user to login form.
     return HttpResponse('Error: method not allowed.')
 
