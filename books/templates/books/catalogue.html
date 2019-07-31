@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Catalogue</title>
+</head>
+<body>
+    <h1>Catalogue</h1>
+    <h4><a href="{% url 'books:new' user %}">Add Book</a></h4>
+    {% if catalogue %}
+        {% for book in catalogue %}
+        <p>{{book.name}} - {{book.author}} (<a href="{% url 'books:edit' book.id %}">edit</a>) (<a href="{% url 'books:delete' book.id %}">delete</a>)</p>
+        {% endfor %}
+    {% else %}
+        <p>You have no books. Add one <a href="{% url 'books:new' user %}">here</a>!</p>
+    {% endif %}
+    <h6><a href="{% url 'users:login' %}">Log Out</a></h6>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+</head>
+<body>
+<h1>Edit Book</h1>
+    <form action="{% url 'books:save' book.id %}" method="POST">{% csrf_token %}
+        <p><label>Name: </label><input type="text" name="name" value="{{book.name}}"></p>
+        <p><label>Author: </label><input type="text" name="author" value="{{book.author}}"></p>
+        <p><label>Genre: </label><select name="genre">
+            <option value="1" {% if book.genre == '1' %}selected="selected"{% endif %}>Horror</option>
+            <option value="2" {% if book.genre == '2' %}selected="selected"{% endif %}>Fantasy</option>
+            <option value="3" {% if book.genre == '3' %}selected="selected"{% endif %}>Mystery</option>
+            <option value="4" {% if book.genre == '4' %}selected="selected"{% endif %}>Biography</option>
+            <option value="5" {% if book.genre == '5' %}selected="selected"{% endif %}>Romance</option>
+            <option value="6" {% if book.genre == '6' %}selected="selected"{% endif %}>Self Help</option>
+            <option value="7" {% if book.genre == '7' %}selected="selected"{% endif %}>Text Book</option>
+        </select></p>
+        <p><label>Language: </label><select name="language">
+            <option value="1" {% if book.language == '1' %}selected="selected"{% endif %}>English</option>
+            <option value="2" {% if book.language == '2' %}selected="selected"{% endif %}>Spanish</option>
+            <option value="3" {% if book.language == '3' %}selected="selected"{% endif %}>French</option>
+            <option value="4" {% if book.language == '4' %}selected="selected"{% endif %}>German</option>
+            <option value="5" {% if book.language == '5' %}selected="selected"{% endif %}>Chinese</option>
+            <option value="6" {% if book.language == '6' %}selected="selected"{% endif %}>Japanese</option>
+        </select></p>
+        <p><label>Publication Date: </label><input type="date" name="publication_date" value="{{book.publication_date|date:'Y-m-d'}}"></p>
+        <p><input type="submit" value="Save"></p>
+    </form>
+</body>
+</html>

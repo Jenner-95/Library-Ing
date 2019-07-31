@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+<h1>Add Book</h1>
+    <form action="{% url 'books:add' %}" method="POST">{% csrf_token %}
+        <input name="owner_id" value="{{user}}" hidden>
+        <p><label>Name: </label><input type="text" name="name"></p>
+        <p><label>Author: </label><input type="text" name="author"></p>
+        <p><label>Genre: </label><select name="genre">
+            <option value="1">Horror</option>
+            <option value="2">Fantasy</option>
+            <option value="3">Mystery</option>
+            <option value="4">Biography</option>
+            <option value="5">Romance</option>
+            <option value="6">Self Help</option>
+            <option value="7">Text Book</option>
+        </select></p>
+        <p><label>Language: </label><select name="language">
+            <option value="1">English</option>
+            <option value="2">Spanish</option>
+            <option value="3">French</option>
+            <option value="4">German</option>
+            <option value="5">Chinese</option>
+            <option value="6">Japanese</option>
+        </select></p>
+        <p><label>Publication Date: </label><input type="date" name="publication_date"></p>
+        <p><input type="submit" value="Add"></p>
+    </form>
+</body>
+</html>
